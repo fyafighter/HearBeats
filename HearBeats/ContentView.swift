@@ -13,6 +13,10 @@ struct ContentView: View {
     @State private var source: BeatSource = .watch
     @State private var demoBPM: Double = 60
     @State private var heartScale: CGFloat = 1.0
+    /// Consumed by the first auto-start after the app opens, so a stop
+    /// (from either device) stays stopped instead of a stray or straggling
+    /// BPM update reviving it on its own.
+    @State private var autoStartArmed = true
 
     private var displayBPM: Double? {
         switch source {
@@ -73,7 +77,9 @@ struct ContentView: View {
 
             Button {
                 if audio.isPlaying {
+                    autoStartArmed = false
                     audio.stop()
+                    if source == .watch { connectivity.sendStop() }
                 } else if let bpm = displayBPM {
                     audio.bpm = bpm
                     audio.start()
@@ -94,9 +100,33 @@ struct ContentView: View {
         }
         .onAppear {
             audio.onBeat = { pulseHeart() }
+            connectivity.onRemoteCommand = { command in
+                if command == "stop" {
+                    autoStartArmed = false
+                    audio.stop()
+                }
+            }
+            syncPlayback()
         }
         .onChange(of: displayBPM) {
-            if let bpm = displayBPM { audio.bpm = bpm }
+            syncPlayback()
+        }
+    }
+
+    /// Starts playback the first time a BPM becomes available after the app
+    /// opens (so Listen doesn't need to be pressed), and keeps the tempo in
+    /// sync while playing. Only that one auto-start is allowed per session —
+    /// once consumed (or once either device stops), new readings just
+    /// update the tempo instead of reviving playback on their own.
+    private func syncPlayback() {
+        if let bpm = displayBPM {
+            audio.bpm = bpm
+            if !audio.isPlaying && autoStartArmed {
+                audio.start()
+                autoStartArmed = false
+            }
+        } else if audio.isPlaying {
+            audio.stop()
         }
     }
 
