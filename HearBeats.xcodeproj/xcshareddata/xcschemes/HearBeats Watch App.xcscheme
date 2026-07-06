@@ -9,8 +9,8 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
@@ -46,9 +46,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E1C87F5E61B7A89A6D5AB33"
-            BuildableName = "HearBeats.app"
-            BlueprintName = "HearBeats"
+            BlueprintIdentifier = "8AEC2494DB10BA3F28467AF2"
+            BuildableName = "HearBeats Watch App.app"
+            BlueprintName = "HearBeats Watch App"
             ReferencedContainer = "container:HearBeats.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -69,9 +69,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E1C87F5E61B7A89A6D5AB33"
-            BuildableName = "HearBeats.app"
-            BlueprintName = "HearBeats"
+            BlueprintIdentifier = "8AEC2494DB10BA3F28467AF2"
+            BuildableName = "HearBeats Watch App.app"
+            BlueprintName = "HearBeats Watch App"
             ReferencedContainer = "container:HearBeats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -88,9 +88,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E1C87F5E61B7A89A6D5AB33"
-            BuildableName = "HearBeats.app"
-            BlueprintName = "HearBeats"
+            BlueprintIdentifier = "8AEC2494DB10BA3F28467AF2"
+            BuildableName = "HearBeats Watch App.app"
+            BlueprintName = "HearBeats Watch App"
             ReferencedContainer = "container:HearBeats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

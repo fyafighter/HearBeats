@@ -12,7 +12,7 @@ settings:
     SWIFT_VERSION: "5.0"
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
-    DEVELOPMENT_TEAM: ""
+    DEVELOPMENT_TEAM: "D5BP886PU2"
     CODE_SIGN_STYLE: Automatic
     GENERATE_INFOPLIST_FILE: YES
 
@@ -73,15 +73,13 @@ schemes:
     build:
       targets:
         HearBeats: all
-        HearBeats Watch App: all
+        HearBeats Watch App: [test, analyze, archive]
     run:
       config: Debug
-      target: HearBeats
   "HearBeats Watch App":
     build:
       targets:
         HearBeats Watch App: all
-        HearBeats: all
+        HearBeats: [test, analyze, archive]
     run:
       config: Debug
-      target: HearBeats Watch App
