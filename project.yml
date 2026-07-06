@@ -1,0 +1,87 @@
+name: HearBeats
+options:
+  bundleIdPrefix: com.hearbeats
+  deploymentTarget:
+    iOS: "17.0"
+    watchOS: "10.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: YES
+
+targets:
+  HearBeats:
+    type: application
+    platform: iOS
+    sources:
+      - path: HearBeats
+        excludes:
+          - "*.entitlements"
+    dependencies:
+      - target: HearBeats Watch App
+        embed: true
+    entitlements:
+      path: HearBeats/HearBeats.entitlements
+      properties:
+        com.apple.developer.background-modes:
+          - audio
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.hearbeats.app
+        INFOPLIST_KEY_CFBundleDisplayName: HearBeats
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIBackgroundModes: audio
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_PREVIEWS: YES
+
+  HearBeats Watch App:
+    type: application
+    platform: watchOS
+    sources:
+      - path: HearBeats Watch App
+        excludes:
+          - "*.entitlements"
+    entitlements:
+      path: HearBeats Watch App/HearBeatsWatchApp.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.hearbeats.app.watchkitapp
+        INFOPLIST_KEY_CFBundleDisplayName: HearBeats
+        INFOPLIST_KEY_WKCompanionAppBundleIdentifier: com.hearbeats.app
+        INFOPLIST_KEY_NSHealthShareUsageDescription: HearBeats reads your heart rate to play it as sound.
+        INFOPLIST_KEY_NSHealthUpdateUsageDescription: HearBeats runs a workout session to measure your live heart rate.
+        INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp: NO
+        TARGETED_DEVICE_FAMILY: "4"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_PREVIEWS: YES
+        SKIP_INSTALL: YES
+
+schemes:
+  HearBeats:
+    build:
+      targets:
+        HearBeats: all
+        HearBeats Watch App: all
+    run:
+      config: Debug
+      target: HearBeats
+  "HearBeats Watch App":
+    build:
+      targets:
+        HearBeats Watch App: all
+        HearBeats: all
+    run:
+      config: Debug
+      target: HearBeats Watch App

@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E0DA92E68B9C519A54E4A07 /* HearBeatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3326BADCA55E1BE6C4CC355C /* HearBeatsApp.swift */; };
+		537D87B7FC704F2C2598A6BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24B315BF29DDF9B237600C /* ContentView.swift */; };
+		7AE32F16A1BF34394CEACD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C58626D5410D7F6440A25A /* Assets.xcassets */; };
+		839FD85B619408B6002BE702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2491E7789272B0AECCB5CE /* Assets.xcassets */; };
+		A7E162426156251C950A2C5B /* HearBeatsWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CB1F13D8E670873A76492 /* HearBeatsWatchApp.swift */; };
+		BD21CB6EF87D9D2FABC717FE /* PhoneConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FBAA8BDD8D2610DC1CE9F1 /* PhoneConnectivity.swift */; };
+		BD7D4C20D209CF0FB31746E0 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D3A6A0FA3C1A71D13533C5 /* WorkoutManager.swift */; };
+		C48C9F48C79FAFFF1BB120C6 /* HearBeats Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A986178DBE291C10FD5223CF /* HearBeats Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CD1B399DC187DE515411317C /* HeartbeatAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C3AC61C4091C04BEBDD12 /* HeartbeatAudioEngine.swift */; };
+		FFFBB430101C2318DA10439E /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5092311676DF8964BBE4B /* WatchContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAF6CB5B9B0FF6A1334D5947 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45F6173231A49321943B3F40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AEC2494DB10BA3F28467AF2;
+			remoteInfo = "HearBeats Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5CA49FACED63FFBAEB434CB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C48C9F48C79FAFFF1BB120C6 /* HearBeats Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3326BADCA55E1BE6C4CC355C /* HearBeatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearBeatsApp.swift; sourceTree = "<group>"; };
+		3A2491E7789272B0AECCB5CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		425CB1F13D8E670873A76492 /* HearBeatsWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearBeatsWatchApp.swift; sourceTree = "<group>"; };
+		66E5092311676DF8964BBE4B /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		9D24B315BF29DDF9B237600C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A4C58626D5410D7F6440A25A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A986178DBE291C10FD5223CF /* HearBeats Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HearBeats Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FBAA8BDD8D2610DC1CE9F1 /* PhoneConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivity.swift; sourceTree = "<group>"; };
+		C66C3AC61C4091C04BEBDD12 /* HeartbeatAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatAudioEngine.swift; sourceTree = "<group>"; };
+		C6D3A6A0FA3C1A71D13533C5 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		FA76991FD9D8B120CB261E4E /* HearBeats.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HearBeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		4BF20A232A4B69B470ABA4D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A986178DBE291C10FD5223CF /* HearBeats Watch App.app */,
+				FA76991FD9D8B120CB261E4E /* HearBeats.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		536960D2AF72014ECA673877 /* HearBeats */ = {
+			isa = PBXGroup;
+			children = (
+				3A2491E7789272B0AECCB5CE /* Assets.xcassets */,
+				9D24B315BF29DDF9B237600C /* ContentView.swift */,
+				3326BADCA55E1BE6C4CC355C /* HearBeatsApp.swift */,
+				C66C3AC61C4091C04BEBDD12 /* HeartbeatAudioEngine.swift */,
+				B5FBAA8BDD8D2610DC1CE9F1 /* PhoneConnectivity.swift */,
+			);
+			path = HearBeats;
+			sourceTree = "<group>";
+		};
+		B3D3D924B585A8569C0157D5 /* HearBeats Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				A4C58626D5410D7F6440A25A /* Assets.xcassets */,
+				425CB1F13D8E670873A76492 /* HearBeatsWatchApp.swift */,
+				66E5092311676DF8964BBE4B /* WatchContentView.swift */,
+				C6D3A6A0FA3C1A71D13533C5 /* WorkoutManager.swift */,
+			);
+			path = "HearBeats Watch App";
+			sourceTree = "<group>";
+		};
+		F22246023A59C0DAE095B02F = {
+			isa = PBXGroup;
+			children = (
+				536960D2AF72014ECA673877 /* HearBeats */,
+				B3D3D924B585A8569C0157D5 /* HearBeats Watch App */,
+				4BF20A232A4B69B470ABA4D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E1C87F5E61B7A89A6D5AB33 /* HearBeats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB64C4E2DFADFCE8C16ECF83 /* Build configuration list for PBXNativeTarget "HearBeats" */;
+			buildPhases = (
+				997A11660F680BF416AD5334 /* Sources */,
+				8B01FC33328A695C50B54DDC /* Resources */,
+				A5CA49FACED63FFBAEB434CB /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0F9B471F328FF527DEB354F /* PBXTargetDependency */,
+			);
+			name = HearBeats;
+			packageProductDependencies = (
+			);
+			productName = HearBeats;
+			productReference = FA76991FD9D8B120CB261E4E /* HearBeats.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8AEC2494DB10BA3F28467AF2 /* HearBeats Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502DBBDEAF0A56BF13A0C975 /* Build configuration list for PBXNativeTarget "HearBeats Watch App" */;
+			buildPhases = (
+				FC44058101F1AC987C896E4A /* Sources */,
+				31D77D3E68AC6B12301FF846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HearBeats Watch App";
+			packageProductDependencies = (
+			);
+			productName = "HearBeats Watch App";
+			productReference = A986178DBE291C10FD5223CF /* HearBeats Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45F6173231A49321943B3F40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					7E1C87F5E61B7A89A6D5AB33 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					8AEC2494DB10BA3F28467AF2 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2FCEC6AD645DB4F430995DD2 /* Build configuration list for PBXProject "HearBeats" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F22246023A59C0DAE095B02F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4BF20A232A4B69B470ABA4D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E1C87F5E61B7A89A6D5AB33 /* HearBeats */,
+				8AEC2494DB10BA3F28467AF2 /* HearBeats Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31D77D3E68AC6B12301FF846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AE32F16A1BF34394CEACD30 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B01FC33328A695C50B54DDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				839FD85B619408B6002BE702 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		997A11660F680BF416AD5334 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537D87B7FC704F2C2598A6BC /* ContentView.swift in Sources */,
+				2E0DA92E68B9C519A54E4A07 /* HearBeatsApp.swift in Sources */,
+				CD1B399DC187DE515411317C /* HeartbeatAudioEngine.swift in Sources */,
+				BD21CB6EF87D9D2FABC717FE /* PhoneConnectivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC44058101F1AC987C896E4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E162426156251C950A2C5B /* HearBeatsWatchApp.swift in Sources */,
+				FFFBB430101C2318DA10439E /* WatchContentView.swift in Sources */,
+				BD7D4C20D209CF0FB31746E0 /* WorkoutManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0F9B471F328FF527DEB354F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AEC2494DB10BA3F28467AF2 /* HearBeats Watch App */;
+			targetProxy = CAF6CB5B9B0FF6A1334D5947 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6596AE67859746F8DD0EA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HearBeats/HearBeats.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIBackgroundModes = audio;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		25D189B9D3103DA4CD00685E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		3CA422CCAF34BC1751A2E819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HearBeats Watch App/HearBeatsWatchApp.entitlements";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HearBeats reads your heart rate to play it as sound.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HearBeats runs a workout session to measure your live heart rate.";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hearbeats.app;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		4AB79F64C591E852DC7E266C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HearBeats/HearBeats.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIBackgroundModes = audio;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7F6E680B0523EA84207828FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HearBeats Watch App/HearBeatsWatchApp.entitlements";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HearBeats reads your heart rate to play it as sound.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HearBeats runs a workout session to measure your live heart rate.";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hearbeats.app;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		8A89BF35E8EDFBA0E9019751 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FCEC6AD645DB4F430995DD2 /* Build configuration list for PBXProject "HearBeats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25D189B9D3103DA4CD00685E /* Debug */,
+				8A89BF35E8EDFBA0E9019751 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		502DBBDEAF0A56BF13A0C975 /* Build configuration list for PBXNativeTarget "HearBeats Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CA422CCAF34BC1751A2E819 /* Debug */,
+				7F6E680B0523EA84207828FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BB64C4E2DFADFCE8C16ECF83 /* Build configuration list for PBXNativeTarget "HearBeats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6596AE67859746F8DD0EA6 /* Debug */,
+				4AB79F64C591E852DC7E266C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45F6173231A49321943B3F40 /* Project object */;
+}
