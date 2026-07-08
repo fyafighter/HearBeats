@@ -84,3 +84,7 @@ If you prefer creating the project yourself instead of using the included `.xcod
 - Match music to the current BPM (MusicKit tempo search, or rate-adjust a local track with `AVAudioUnitTimePitch`).
 - Record and replay a heartbeat session.
 - Haptic lub-dub on the watch itself.
+
+## Copyright
+
+Copyright © 2026 Christopher Johnson. All rights reserved.
