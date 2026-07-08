@@ -15,9 +15,8 @@ final class PhoneConnectivity: NSObject, ObservableObject, WCSessionDelegate {
     }
 
     /// Fired on the main thread when the watch sends a control command
-    /// (currently just "stop"), so a Stop press on either device ends the
-    /// session on both instead of leaving the other side running with no
-    /// clear way to tell why.
+    /// ("start" or "stop"), so pressing either on one device brings the
+    /// other along instead of leaving them out of sync.
     var onRemoteCommand: ((String) -> Void)?
 
     override init() {
@@ -41,10 +40,15 @@ final class PhoneConnectivity: NSObject, ObservableObject, WCSessionDelegate {
     }
 
     /// Tells the watch to stop monitoring, mirroring a Stop press here.
-    func sendStop() {
+    func sendStop() { sendControl("stop") }
+
+    /// Tells the watch to start monitoring, mirroring a Listen press here.
+    func sendStart() { sendControl("start") }
+
+    private func sendControl(_ command: String) {
         let session = WCSession.default
         guard session.activationState == .activated else { return }
-        let payload: [String: Any] = ["command": "stop"]
+        let payload: [String: Any] = ["command": command]
         if session.isReachable {
             session.sendMessage(payload, replyHandler: nil, errorHandler: nil)
         } else {

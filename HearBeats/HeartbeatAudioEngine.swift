@@ -20,11 +20,51 @@ final class HeartbeatAudioEngine: ObservableObject {
         set { queue.sync { _bpm = min(max(newValue, 25), 220) } }
     }
 
+    /// When true, plays alongside other apps' audio (e.g. Spotify) instead
+    /// of silencing it. Re-applied live if changed while already playing.
+    var mixWithOthers: Bool = true {
+        didSet {
+            guard isPlaying else { return }
+            try? applyAudioSessionCategory()
+        }
+    }
+
+    /// Output level for the synthesized heartbeat, independent of the
+    /// system volume. Safe to set at any time, including mid-playback.
+    /// `AVAudioMixerNode.outputVolume` is hard-capped at 1.0 (unity gain),
+    /// which isn't loud enough to cut through music playing alongside it —
+    /// so above ~70% this doesn't just turn up a linear fader, it actively
+    /// drives the synthesis harder into its soft-clip stage for real
+    /// loudness headroom past what a plain volume control could reach.
+    var volume: Float {
+        get { queue.sync { _volume } }
+        set {
+            let clamped = min(max(newValue, 0), 1)
+            queue.sync { _volume = clamped }
+            engine.mainMixerNode.outputVolume = Self.mixerGain(for: clamped)
+        }
+    }
+
     /// Fired on the main thread at the start of each beat (for UI pulse).
     var onBeat: (() -> Void)?
 
     private var _bpm: Double = 60
+    private var _volume: Float = 1.0
     private let queue = DispatchQueue(label: "HeartbeatAudioEngine.state")
+
+    private static let normalDrive = 1.15
+    private static let maxDrive = 5.5
+    private static let boostThreshold: Float = 0.7
+
+    private static func mixerGain(for volume: Float) -> Float {
+        volume <= boostThreshold ? volume / boostThreshold : 1.0
+    }
+
+    private static func driveGain(for volume: Float) -> Double {
+        guard volume > boostThreshold else { return normalDrive }
+        let t = Double((volume - boostThreshold) / (1.0 - boostThreshold))
+        return normalDrive + t * (maxDrive - normalDrive)
+    }
 
     private let engine = AVAudioEngine()
     private let player = AVAudioPlayerNode()
@@ -37,15 +77,15 @@ final class HeartbeatAudioEngine: ObservableObject {
     func start() {
         guard !isPlaying else { return }
         do {
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playback, mode: .default)
-            try session.setActive(true)
+            try applyAudioSessionCategory()
+            try AVAudioSession.sharedInstance().setActive(true)
 
             if !engine.attachedNodes.contains(player) {
                 let hwSampleRate = engine.outputNode.outputFormat(forBus: 0).sampleRate
                 if hwSampleRate > 0 { sampleRate = hwSampleRate }
                 engine.attach(player)
                 engine.connect(player, to: engine.mainMixerNode, format: format)
+                engine.mainMixerNode.outputVolume = Self.mixerGain(for: volume)
             }
             engine.prepare()
             try engine.start()
@@ -59,6 +99,11 @@ final class HeartbeatAudioEngine: ObservableObject {
         // Keep one buffer in flight ahead of the one playing.
         scheduleNextBeat(notify: true)
         scheduleNextBeat(notify: false)
+    }
+
+    private func applyAudioSessionCategory() throws {
+        let options: AVAudioSession.CategoryOptions = mixWithOthers ? [.mixWithOthers] : []
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: options)
     }
 
     func stop() {
@@ -127,8 +172,12 @@ final class HeartbeatAudioEngine: ObservableObject {
 
         applyChestCharacter(to: samples, count: n)
 
-        // Gentle soft-clip so overlapping tails never crackle.
-        for i in 0..<n { samples[i] = tanh(samples[i] * 1.15) }
+        // Soft-clip so overlapping tails never crackle — the drive going
+        // into it also carries the loudness-boosted half of the volume
+        // control (see `volume`), so this doubles as a limiter at high
+        // settings rather than a fixed, purely cosmetic saturation stage.
+        let drive = Float(Self.driveGain(for: volume))
+        for i in 0..<n { samples[i] = tanh(samples[i] * drive) }
         return buffer
     }
 

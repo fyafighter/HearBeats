@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E0DA92E68B9C519A54E4A07 /* HearBeatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3326BADCA55E1BE6C4CC355C /* HearBeatsApp.swift */; };
+		41907F09818C1D8DBE48FB5B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09232FE0F148C330ABBAF3 /* SettingsView.swift */; };
 		537D87B7FC704F2C2598A6BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24B315BF29DDF9B237600C /* ContentView.swift */; };
 		7AE32F16A1BF34394CEACD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C58626D5410D7F6440A25A /* Assets.xcassets */; };
 		839FD85B619408B6002BE702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2491E7789272B0AECCB5CE /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		9D24B315BF29DDF9B237600C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4C58626D5410D7F6440A25A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A986178DBE291C10FD5223CF /* HearBeats Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HearBeats Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE09232FE0F148C330ABBAF3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B5FBAA8BDD8D2610DC1CE9F1 /* PhoneConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivity.swift; sourceTree = "<group>"; };
 		C66C3AC61C4091C04BEBDD12 /* HeartbeatAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatAudioEngine.swift; sourceTree = "<group>"; };
 		C6D3A6A0FA3C1A71D13533C5 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				3326BADCA55E1BE6C4CC355C /* HearBeatsApp.swift */,
 				C66C3AC61C4091C04BEBDD12 /* HeartbeatAudioEngine.swift */,
 				B5FBAA8BDD8D2610DC1CE9F1 /* PhoneConnectivity.swift */,
+				AE09232FE0F148C330ABBAF3 /* SettingsView.swift */,
 			);
 			path = HearBeats;
 			sourceTree = "<group>";
@@ -150,11 +153,11 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					7E1C87F5E61B7A89A6D5AB33 = {
-						DevelopmentTeam = D5BP886PU2;
+						DevelopmentTeam = 98Q6MMGSNY;
 						ProvisioningStyle = Automatic;
 					};
 					8AEC2494DB10BA3F28467AF2 = {
-						DevelopmentTeam = D5BP886PU2;
+						DevelopmentTeam = 98Q6MMGSNY;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -207,6 +210,7 @@
 				2E0DA92E68B9C519A54E4A07 /* HearBeatsApp.swift in Sources */,
 				CD1B399DC187DE515411317C /* HeartbeatAudioEngine.swift in Sources */,
 				BD21CB6EF87D9D2FABC717FE /* PhoneConnectivity.swift in Sources */,
+				41907F09818C1D8DBE48FB5B /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +239,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HearBeats/HearBeats.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
@@ -290,7 +293,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = D5BP886PU2;
+				DEVELOPMENT_TEAM = 98Q6MMGSNY;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -343,7 +346,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HearBeats/HearBeats.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HearBeats;
@@ -416,7 +418,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = D5BP886PU2;
+				DEVELOPMENT_TEAM = 98Q6MMGSNY;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

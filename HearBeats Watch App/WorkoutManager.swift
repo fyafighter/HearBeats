@@ -48,26 +48,37 @@ final class WorkoutManager: NSObject, ObservableObject {
 
     // MARK: - Session control
 
+    /// Starts locally and tells the phone to start too, mirroring
+    /// `stopMonitoring()` — pressing Start on either device should bring
+    /// the other one along instead of leaving them out of sync.
     func startMonitoring() {
+        startMonitoringLocally()
+        sendControl("start")
+    }
+
+    private func startMonitoringLocally() {
+        guard !isMonitoring else { return }
         errorMessage = nil
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = .other
         configuration.locationType = .indoor
 
         do {
-            session = try HKWorkoutSession(healthStore: healthStore,
-                                           configuration: configuration)
-            builder = session?.associatedWorkoutBuilder()
-            builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
-                                                          workoutConfiguration: configuration)
-            session?.delegate = self
-            builder?.delegate = self
+            let newSession = try HKWorkoutSession(healthStore: healthStore,
+                                                  configuration: configuration)
+            let newBuilder = newSession.associatedWorkoutBuilder()
+            newBuilder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
+                                                            workoutConfiguration: configuration)
+            newSession.delegate = self
+            newBuilder.delegate = self
+            session = newSession
+            builder = newBuilder
 
             let start = Date()
-            session?.startActivity(with: start)
-            builder?.beginCollection(withStart: start) { _, error in
+            newSession.startActivity(with: start)
+            newBuilder.beginCollection(withStart: start) { [weak self] _, error in
                 if let error {
-                    DispatchQueue.main.async { self.errorMessage = error.localizedDescription }
+                    DispatchQueue.main.async { self?.errorMessage = error.localizedDescription }
                 }
             }
             isMonitoring = true
@@ -85,8 +96,10 @@ final class WorkoutManager: NSObject, ObservableObject {
     }
 
     private func stopMonitoringLocally() {
-        session?.end()
+        guard isMonitoring else { return }
         isMonitoring = false
+        heartRate = nil
+        session?.end()
     }
 
     // MARK: - Sending to phone
@@ -114,8 +127,14 @@ final class WorkoutManager: NSObject, ObservableObject {
     // MARK: - Receiving from phone
 
     private func handleIncoming(_ payload: [String: Any]) {
-        guard let command = payload["command"] as? String, command == "stop" else { return }
-        DispatchQueue.main.async { self.stopMonitoringLocally() }
+        guard let command = payload["command"] as? String else { return }
+        DispatchQueue.main.async {
+            switch command {
+            case "stop": self.stopMonitoringLocally()
+            case "start": self.startMonitoringLocally()
+            default: break
+            }
+        }
     }
 }
 
@@ -126,15 +145,19 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
                         didChangeTo toState: HKWorkoutSessionState,
                         from fromState: HKWorkoutSessionState,
                         date: Date) {
-        if toState == .ended {
-            builder?.endCollection(withEnd: date) { [weak self] _, _ in
-                // We only monitor — no need to save a workout to Health.
-                self?.builder?.discardWorkout()
-                DispatchQueue.main.async {
-                    self?.session = nil
-                    self?.builder = nil
-                    self?.heartRate = nil
-                }
+        // A Stop immediately followed by a Start (from either device, or a
+        // rapid double-tap) can leave this callback firing for a session
+        // that's no longer the current one — only tear down state if it
+        // still belongs to the session that's actually ending.
+        guard toState == .ended, workoutSession === session else { return }
+        let endingBuilder = builder
+        endingBuilder?.endCollection(withEnd: date) { _, _ in
+            // We only monitor — no need to save a workout to Health.
+            endingBuilder?.discardWorkout()
+            DispatchQueue.main.async { [weak self] in
+                guard let self, workoutSession === self.session else { return }
+                self.session = nil
+                self.builder = nil
             }
         }
     }
@@ -142,6 +165,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
     func workoutSession(_ workoutSession: HKWorkoutSession,
                         didFailWithError error: Error) {
         DispatchQueue.main.async {
+            guard workoutSession === self.session else { return }
             self.errorMessage = error.localizedDescription
             self.isMonitoring = false
         }
@@ -153,6 +177,10 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
 extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder,
                         didCollectDataOf collectedTypes: Set<HKSampleType>) {
+        // Ignore stragglers from a builder that's since been replaced or
+        // torn down — this is what previously let a stopped session's
+        // in-flight reading revive playback on the phone right after Stop.
+        guard workoutBuilder === builder else { return }
         let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
         guard collectedTypes.contains(heartRateType),
               let statistics = workoutBuilder.statistics(for: heartRateType),
