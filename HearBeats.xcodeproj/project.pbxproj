@@ -291,7 +291,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 98Q6MMGSNY;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -334,7 +334,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HearBeats reads your heart rate to play it as sound.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HearBeats runs a workout session to measure your live heart rate.";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hearbeats.app;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -373,7 +373,7 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HearBeats reads your heart rate to play it as sound.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HearBeats runs a workout session to measure your live heart rate.";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hearbeats.app;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearbeats.app.watchkitapp;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -416,7 +416,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 98Q6MMGSNY;
 				ENABLE_NS_ASSERTIONS = NO;
